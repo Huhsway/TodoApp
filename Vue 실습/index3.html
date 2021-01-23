@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .dropdown ul{
+        display: none;
+        list-style: none;
+        margin: 0;
+        border: 1px solid black;
+        padding: 10px;
+        width: 200px;
+    }
+    
+    .dropdown.on ul{
+        display: block;
+    }
+</style>
+<body>
+<div id="app">
+    <!-- <img :id = "`thumbnail_${id}`" :src="image"> 참고로 앞에 콜론 붙여주면
+    ""안이 자바스크립트 영역이 되어 스트링 연산이나 변수 대입의 연산이 가능해짐 -->
+    <div :class="[dropdown, toggle]">
+        <ul>
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+        </ul>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                id: 1,
+                image: "https://picsum.photos/200/200/?image=353",
+                style: {
+                    background: 'red',
+                },
+                fontStyle: {
+                    fontSize: '10px',
+                    fondFamily: 'dotum'
+                },
+                dropdown: 'dropdown',
+                toggle: {
+                    on: false 
+                }
+            };
+        }
+    })
+</script>
+</body>
+</html>

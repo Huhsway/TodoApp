@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul style="list-style: none"> <!--ul의 점 제거-->
+        <template v-for="item in items"> <!--디자인상 태그 하나로 감쌀 수 없는 경우 템플릿 태그 사용-->
+            <li>
+                <img :src="item.image">
+            </li>   
+            <li>
+                {{item.title}}
+            </li>
+        </template>
+        <!-- <li v-for="item in items">
+            <img :src="item.image"> Vue는 태그에 어트리뷰트 값을 대입 시키려면 {{}} 사용하지 않고
+            어트리뷰트 앞에 콜론을 입력 후 변수명을 적어 주자 콜론은 v-bind의 약자
+            <br />
+            {{ item.title }}
+        </li> -->
+    </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({ // 인스턴스 만들어 사용하고 내부에 데이터 메소드 이용해서 사용
+        el: '#app',
+        data() {
+            return {
+                items:[
+                    {
+                        id: 1,
+                        image: 'https://picsum.photos/210/118/?image=1',
+                        title: '컴퓨터'
+                    },
+                    {
+                        id: 2,
+                        image: 'https://picsum.photos/210/118/?image=100',
+                        title: '해변'
+                    },
+                    {
+                        id: 3,
+                        image: 'https://picsum.photos/210/118/?image=160',
+                        title: '휴대폰'
+                    },
+                    {
+                        id: 4,
+                        image: 'https://picsum.photos/210/118/?image=200',
+                        title: '황소'
+                    },
+                ]
+            }
+        }
+    })
+</script>
+</body>
+</html>
